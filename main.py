@@ -1,4 +1,4 @@
-
+import config
 import requests
 
 class City:
@@ -17,7 +17,7 @@ class City:
 
     def getData(self):
         try:
-            response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?units={self.units}&lat={self.lat}&lon={self.lon}&appid=d0c76440181875c27c4053af158e11a6")
+            response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?units={self.units}&lat={self.lat}&lon={self.lon}&appid={config.api_key}")
         except:
             print("no internet")
 
