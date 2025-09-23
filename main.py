@@ -39,4 +39,5 @@ city1.tempPrint()
 city2 = City("Piscataway", 40.560806, -74.465591, "imperial")
 city2.tempPrint()
 
-#add a section with google maps geocode api for location to weather.
+#add a section with google maps geocoding api for location to weather.
+# geocode api requires billing
