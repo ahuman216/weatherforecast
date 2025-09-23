@@ -19,7 +19,7 @@ class City:
         try:
             response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?units={self.units}&lat={self.lat}&lon={self.lon}&appid=d0c76440181875c27c4053af158e11a6")
         except:
-            print("no internet")
+            print("Something went wrong, double check your input and internet connection and try again.")
 
         self.response_json = response.json()
         self.temp = self.response_json["main"]["temp"]
@@ -27,9 +27,9 @@ class City:
         self.temp_max = self.response_json["main"]["temp_max"]
 
     def tempPrint(self):
-        print(f"In {self.name} it is currently {self.temp}°{self.printUnits}")
-        print(f"Today's high: {self.temp_max}°{self.printUnits}")
-        print(f"Today's low: {self.temp_min}°{self.printUnits}")
+        print(f"In {self.name} it is currently {self.temp}° {self.printUnits}")
+        print(f"Today's high: {self.temp_max}° {self.printUnits}")
+        print(f"Today's low: {self.temp_min}° {self.printUnits}")
 
         
 
@@ -70,13 +70,13 @@ while True:
         print("Not a valid longitude.")
 while True:
     try:
-        u = str(input("Do you want imperial or metric units? ")).lower()
-        if(u=="metric" or u== "imperial"):
+        u = str(input("Do you want imperial, standard or metric units? ")).lower()
+        if(u=="metric" or u== "imperial" or u=="standard"):
             break
         else:
             pass
     except:
-        print("Not a valid answer. Enter either imperial or metric")
+        print("Not a valid answer. Enter either imperial, standard or metric")
 thecity = City(cityName, lat, lon, u)
 thecity.tempPrint()
 time.sleep(1)
