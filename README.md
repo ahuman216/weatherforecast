@@ -12,3 +12,5 @@ I used APIs from OpenWeather such as their Geocoding API and their Current Weath
 
 What you struggled with and what you learned
 As I have not coded in python in a while, I struggled to get back into it and remember everything I learned. It was hard to put everything together, and especially hard to catch all possible exceptions using try and except. 
+
+[![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
