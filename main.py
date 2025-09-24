@@ -1,5 +1,6 @@
 import requests
 import time
+import ziptocoord
 
 class City:
     def __init__(self, name, lat, lon, units="metric"):
@@ -42,7 +43,7 @@ print("_________________________________________________________________________
 time.sleep(1)
 print("______________________Welcome to the Temperature Calculator_____________________")
 time.sleep(1)
-print("All you have to do is just enter some coordinates and I'll tell you the weather.")
+print("__All you have to do is just enter your zipcode and I'll tell you the weather.__")
 time.sleep(1)
 print("_________________________________Are you ready?_________________________________")
 time.sleep(3)
@@ -52,22 +53,10 @@ print("---------------------------------Okay, let's go!-------------------------
 time.sleep(1)
 while True:
     try:
-        cityName = str(input("What is your city? "))
+        zipcode = input("What is your zipcode? ")
         break
     except:
-        print("Enter a valid city name")
-while True:
-    try: 
-        lat = float(input("Enter the latitude "))
-        break
-    except:
-        print("Not a valid latitude.")
-while True: 
-    try:
-        lon = float(input("Enter the longitude "))
-        break
-    except:
-        print("Not a valid longitude.")
+        print("Enter a valid zipcode")
 while True:
     try:
         u = str(input("Do you want imperial, standard or metric units? ")).lower()
@@ -77,10 +66,16 @@ while True:
             pass
     except:
         print("Not a valid answer. Enter either imperial, standard or metric")
-thecity = City(cityName, lat, lon, u)
+
+
+c = ziptocoord.getCoord(zipcode)
+lat = c[0]
+lon = c[1]
+name = c[2]
+thecity = City(name, lat, lon, u)
 thecity.tempPrint()
 time.sleep(1)
-print("If this does not seem accurate, make sure you are entering the right coordinates.")
+print("_____________If you are not in the US, this will not work for you._______________")
 time.sleep(1)
 print("_______________________If you enjoyed this, try it again!________________________")
 time.sleep(1)
